@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from './movie';
-import { UserProfile } from './user-profile';
-import { Feedback } from './feedback';
+import { Movie } from '../movie';
+import { UserProfile } from '../model/user-profile';
+import { Feedback } from '../model/feedback';
+import { UserProfileService } from '../service/user-profile.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'dashboard',
@@ -33,7 +35,8 @@ import { Feedback } from './feedback';
         </div>
     </div>
   `,
-  styles: []
+  styles: [],
+  providers: [UserProfileService],
 })
 export class DahsBoardComponent implements OnInit {
   title = 'app';
@@ -42,10 +45,12 @@ export class DahsBoardComponent implements OnInit {
   gottenMovies: Movie[];
   feedbacks: Feedback[];
 
-  //constructor (userProfileService: UserProfileService, movieService: MovieService) {}
+  //constructor (private userProfileService: UserProfileService, private movieService: MovieService) {}
+  constructor (private userProfileService: UserProfileService) {}
 
-  ngOnInit () {
-    //userProfile = userProfileService.getUserProfile();
+  ngOnInit (): void {
+    //(new Observable(this.userProfileService.getUserProfile())).subscribe(
+        //userProfile => this.userProfile = userProfile);
     //postedMovies = movieService.getPostedMoviesByUser(userProfile.getId);
     //gottenMovies = movieService.getGottenMoviesByUser();
   }
