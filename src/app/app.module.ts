@@ -22,6 +22,12 @@ import {MovieComponent }  from './movie.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    RouterModule.forRoot([
+      { path: 'login', component: LoginComponent},
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: '**', redirectTo: 'login', pathMatch: 'full' }
+  ])
+    
     
   ],
   providers: [ToastrService],
