@@ -7,6 +7,7 @@ import 'rxjs/Rx';
 
 import { LoginComponent } from './home/login.component';
 
+import { UserModule } from './user/user.module';
 import { ToastrService } from './services/toastr.service';
 
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import {MovieComponent }  from './movie.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    UserModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
       { path: '', redirectTo: 'login', pathMatch: 'full' },
