@@ -17,6 +17,18 @@ export class AuthService {
     
     constructor(private http: Http) {}
 
+    isLoggedIn(): boolean {
+        try {
+            const theUser:any = JSON.parse(localStorage.getItem('currentUser'));
+            if (theUser) {
+                this.currentUser = theUser.user;
+            }
+        } catch (e) {
+            return false;
+        }
+        
+        return !!this.currentUser;
+    }
 
     login(oUser) {
         let headers = new Headers({ 'Content-Type': 'application/json'});
