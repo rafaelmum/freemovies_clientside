@@ -32,29 +32,33 @@ export class UserProfileService {
         movie.title = 'The Godfather';
         movie.year = 1972;
 
-        movieArray.push(movie);
-
-        movie = new Movie();
-        movie.title = 'Scarface';
-        movie.year = 1980;
-
-        movieArray.push(movie);
-        
-        userProfile.movieDiskGivenArray = movieArray;
-        userProfile.movieDiskReceivedArray = movieArray;
-
-        let feedbackArray: Feedback[] = new Array<Feedback>();
         let feedback: Feedback = new Feedback();
         feedback.feedbackType = FeedbackType.POSITIVE;
         feedback.text = 'Honest guy. Recommended.';
         feedback.userTo = user;
         feedback.userFrom = user;
 
-        feedbackArray.push(feedback);
+        movie.feedback = feedback;
 
-        userProfile.feedbackGivenArray = feedbackArray;
-        userProfile.feedbackReceivedArray = feedbackArray;
+        movieArray.push(movie);
 
-        return (userProfile);
+        movie = new Movie();
+        movie.title = 'Scarface';
+        movie.year = 1980;
+
+        feedback = new Feedback();
+        feedback.feedbackType = FeedbackType.NEGATIVE;
+        feedback.text = 'Not a good trade.';
+        feedback.userTo = user;
+        feedback.userFrom = user;
+
+        movie.feedback = feedback;
+
+        movieArray.push(movie);
+        
+        userProfile.movieDiskGivenArray = movieArray;
+        userProfile.movieDiskReceivedArray = movieArray;
+
+        return userProfile;
     }
 }

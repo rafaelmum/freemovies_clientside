@@ -9,35 +9,27 @@ import { Observable } from 'rxjs/Observable';
   selector: 'app-root', //dashboard
   template: `
     <h1>
-        Welcome {{userProfile.user.firstname}}!
-        Points: {{userProfile.user.points}}!
+        {{userProfile.user.firstname}}'s Dashboard
+        <br>
+        Points: {{userProfile.user.points}}
     </h1>
+    <div>
+        <button>Movies</button>
+        <button>Donate</button>
+        <button>Sign Out</button>
+    </div>
     <div>
         <h3>
             Movies Given
         </h3>
         <div *ngFor='let movieDiskGiven of userProfile.movieDiskGivenArray'>
-            {{movieDiskGiven.title}} - {{movieDiskGiven.year}}
+            {{movieDiskGiven.title}} - {{movieDiskGiven.year}} [{{movieDiskGiven.feedback.feedbackType}} - "{{movieDiskGiven.feedback.text}}"]
         </div>
         <h3>
             Movies Received
         </h3>
         <div *ngFor='let movieDiskReceived of userProfile.movieDiskReceivedArray'>
-            {{movieDiskReceived.title}} - {{movieDiskReceived.year}}
-        </div>
-    </div>
-    <div>
-        <h3>
-            Feedbacks Given
-        </h3>
-        <div *ngFor='let feedback of userProfile.feedbackGivenArray'>
-            {{feedback.userTo.firstname}} - {{feedback.feedbackType}} - {{feedback.text}}
-        </div>
-        <h3>
-            Feedbacks Received
-        </h3>
-        <div *ngFor='let feedback of userProfile.feedbackReceivedArray'>
-            {{feedback.userFrom.firstname}} - {{feedback.feedbackType}} - {{feedback.text}}
+            {{movieDiskReceived.title}} - {{movieDiskReceived.year}} [{{movieDiskReceived.feedback.feedbackType}} - "{{movieDiskReceived.feedback.text}}"]
         </div>
     </div>
   `,
