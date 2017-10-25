@@ -3,6 +3,6 @@ import { Movie } from '../movie';
 
 export class UserProfile {
     user: IUser;
-    movieDiskGivenArray: Movie[];
-    movieDiskReceivedArray: Movie[];
+    movieGivenArray: Movie[];
+    movieReceivedArray: Movie[];
 }

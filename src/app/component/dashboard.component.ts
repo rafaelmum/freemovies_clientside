@@ -22,13 +22,13 @@ import { Observable } from 'rxjs/Observable';
         <h3>
             Movies Given
         </h3>
-        <div *ngFor='let movieDiskGiven of userProfile.movieDiskGivenArray'>
+        <div *ngFor='let movieDiskGiven of userProfile.movieGivenArray'>
             {{movieDiskGiven.title}} - {{movieDiskGiven.year}} [{{movieDiskGiven.feedback.feedbackType}} - "{{movieDiskGiven.feedback.text}}"]
         </div>
         <h3>
             Movies Received
         </h3>
-        <div *ngFor='let movieDiskReceived of userProfile.movieDiskReceivedArray'>
+        <div *ngFor='let movieDiskReceived of userProfile.movieReceivedArray'>
             {{movieDiskReceived.title}} - {{movieDiskReceived.year}} [{{movieDiskReceived.feedback.feedbackType}} - "{{movieDiskReceived.feedback.text}}"]
         </div>
     </div>

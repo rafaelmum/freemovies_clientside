@@ -26,7 +26,7 @@ export class UserProfileService {
 
         userProfile.user = user;
 
-        // Filling Movie Disks.
+        // Filling Movie arrays.
         let movieArray: Movie[] = new Array<Movie>();
         let movie: Movie = new Movie();
         movie.title = 'The Godfather';
@@ -56,8 +56,8 @@ export class UserProfileService {
 
         movieArray.push(movie);
         
-        userProfile.movieDiskGivenArray = movieArray;
-        userProfile.movieDiskReceivedArray = movieArray;
+        userProfile.movieGivenArray = movieArray;
+        userProfile.movieReceivedArray = movieArray;
 
         return userProfile;
     }
