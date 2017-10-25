@@ -4,6 +4,7 @@ import { UserProfile } from '../model/user-profile';
 import { Feedback } from '../model/feedback';
 import { UserProfileService } from '../service/user-profile.service';
 import { DashboardMoviePipe } from '../pipe/dashboard-movie.pipe';
+import { DashboardMovieDirective } from '../directive/dashboard-movie.directive';
 
 @Component({
   selector: 'app-root', //dashboard
@@ -23,13 +24,15 @@ import { DashboardMoviePipe } from '../pipe/dashboard-movie.pipe';
             Movies Given
         </h3>
         <div *ngFor='let movieGiven of userProfile.movieGivenArray'>
-            {{movieGiven.title}} - {{movieGiven.year}} {{movieGiven.feedback | dashboard_movie_pipe}}
+            <span>{{movieGiven.title}} - {{movieGiven.year}}</span>
+            <span dashboardMovieDirective>{{movieGiven.feedback | dashboard_movie_pipe}}</span>
         </div>
         <h3>
             Movies Received
         </h3>
         <div *ngFor='let movieReceived of userProfile.movieReceivedArray'>
-            {{movieReceived.title}} - {{movieReceived.year}} {{movieReceived.feedback | dashboard_movie_pipe}}
+            <span>{{movieReceived.title}} - {{movieReceived.year}}</span>
+            <span dashboardMovieDirective>{{movieReceived.feedback | dashboard_movie_pipe}}</span>
         </div>
     </div>
   `,

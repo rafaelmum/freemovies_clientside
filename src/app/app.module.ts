@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import {MovieComponent }  from './movie.component';
 
 import { DashboardMoviePipe } from './pipe/dashboard-movie.pipe';
+import { DashboardMovieDirective } from './directive/dashboard-movie.directive';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DashboardMoviePipe } from './pipe/dashboard-movie.pipe';
     LoginComponent,
     MovieComponent,
     DashboardComponent,
-    DashboardMoviePipe
+    DashboardMoviePipe,
+    DashboardMovieDirective
   ],
   imports: [
     BrowserModule,
