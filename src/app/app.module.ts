@@ -15,6 +15,7 @@ import { DashboardComponent } from './component/dashboard.component';
 
 import { UserModule } from './user/user.module';
 import { ToastrService } from './services/toastr.service';
+import { AuthGuard } from './user/auth-guard.service';
 
 import { AppComponent } from './app.component';
 
@@ -44,7 +45,7 @@ import { DashboardMovieDirective } from './directive/dashboard-movie.directive';
     UserModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
-   //   { path: 'dashboard', component: DahsBoardComponent},
+      { path: 'dashboard', component: DashboardComponent,canActivate: [ AuthGuard]},
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: 'login', pathMatch: 'full' }
   ])
