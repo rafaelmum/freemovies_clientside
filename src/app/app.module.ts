@@ -1,24 +1,58 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {  HttpModule } from '@angular/http';
-import { AppComponent } from './app.component';
+
+
 import {MovieModule} from './module/movie.module'
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';     
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import 'rxjs/Rx';
+
+import { LoginComponent } from './home/login.component';
+import { DashboardComponent } from './component/dashboard.component';
+
+import { UserModule } from './user/user.module';
+import { ToastrService } from './services/toastr.service';
+
+import { AppComponent } from './app.component';
+
+
+import { DashboardMoviePipe } from './pipe/dashboard-movie.pipe';
+import { DashboardMovieDirective } from './directive/dashboard-movie.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
-     
+    AppComponent ,
+    LoginComponent,
+    DashboardComponent,
+    DashboardMoviePipe,
+    DashboardMovieDirective
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+
+    
     HttpClientModule,
-    MovieModule    
+    MovieModule ,  
+
+    ReactiveFormsModule,
+    HttpModule,
+    UserModule,
+    RouterModule.forRoot([
+      { path: 'login', component: LoginComponent},
+   //   { path: 'dashboard', component: DahsBoardComponent},
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: '**', redirectTo: 'login', pathMatch: 'full' }
+  ])
+    
+    
+
   ],
-  providers: [],
+  providers: [ToastrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
