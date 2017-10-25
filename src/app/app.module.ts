@@ -13,12 +13,16 @@ import { ToastrService } from './services/toastr.service';
 
 import { AppComponent } from './app.component';
 import {MovieComponent }  from './movie.component';
+
+import { DashboardMoviePipe } from './pipe/dashboard-movie.pipe';
+
 @NgModule({
   declarations: [
     AppComponent ,
     LoginComponent,
     MovieComponent,
-    DashboardComponent
+    DashboardComponent,
+    DashboardMoviePipe
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,6 @@ import {MovieComponent }  from './movie.component';
     
   ],
   providers: [ToastrService],
-  //bootstrap: [AppComponent]
-  bootstrap: [DashboardComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
