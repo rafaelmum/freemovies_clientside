@@ -6,6 +6,6 @@ import { Feedback } from '../model/feedback';
 })
 export class DashboardMoviePipe implements PipeTransform {
     transform(feedback: Feedback) {
-        return '[' + feedback.feedbackType + '- "' + feedback.text + '"]';
+        return '[' + feedback.feedbackType + ' - "' + feedback.text + '"]';
     }
 }
