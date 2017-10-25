@@ -9,13 +9,13 @@ import { Observable } from 'rxjs/Observable';
   selector: 'app-root', //dashboard
   template: `
     <h1>
-        {{userProfile.user.firstname}}'s Dashboard
+        {{userProfile.user.firstname}} - Dashboard
         <br>
         Points: {{userProfile.user.points}}
     </h1>
     <div>
         <button>Movies</button>
-        <button>Donate</button>
+        <button>Buy Points</button>
         <button>Sign Out</button>
     </div>
     <div>

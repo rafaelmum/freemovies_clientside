@@ -36,7 +36,6 @@ import {MovieComponent }  from './movie.component';
     
   ],
   providers: [ToastrService],
-  //bootstrap: [AppComponent]
-  bootstrap: [DashboardComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
