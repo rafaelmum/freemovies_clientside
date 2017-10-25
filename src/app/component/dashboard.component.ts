@@ -3,7 +3,8 @@ import { Movie } from '../movie';
 import { UserProfile } from '../model/user-profile';
 import { Feedback } from '../model/feedback';
 import { UserProfileService } from '../service/user-profile.service';
-import { Observable } from 'rxjs/Observable';
+import { DashboardMoviePipe } from '../pipe/dashboard-movie.pipe';
+import { DashboardMovieDirective } from '../directive/dashboard-movie.directive';
 
 @Component({
   selector: 'app-root', //dashboard
@@ -22,14 +23,16 @@ import { Observable } from 'rxjs/Observable';
         <h3>
             Movies Given
         </h3>
-        <div *ngFor='let movieDiskGiven of userProfile.movieGivenArray'>
-            {{movieDiskGiven.title}} - {{movieDiskGiven.year}} [{{movieDiskGiven.feedback.feedbackType}} - "{{movieDiskGiven.feedback.text}}"]
+        <div *ngFor='let movieGiven of userProfile.movieGivenArray'>
+            <span>{{movieGiven.title}} - {{movieGiven.year}}</span>
+            <span dashboardMovieDirective>{{movieGiven.feedback | dashboard_movie_pipe}}</span>
         </div>
         <h3>
             Movies Received
         </h3>
-        <div *ngFor='let movieDiskReceived of userProfile.movieReceivedArray'>
-            {{movieDiskReceived.title}} - {{movieDiskReceived.year}} [{{movieDiskReceived.feedback.feedbackType}} - "{{movieDiskReceived.feedback.text}}"]
+        <div *ngFor='let movieReceived of userProfile.movieReceivedArray'>
+            <span>{{movieReceived.title}} - {{movieReceived.year}}</span>
+            <span dashboardMovieDirective>{{movieReceived.feedback | dashboard_movie_pipe}}</span>
         </div>
     </div>
   `,

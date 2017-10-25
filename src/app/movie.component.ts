@@ -82,7 +82,7 @@ export class MovieComponent {
    searchtitle: String='';
    movietoadd: Movie = new Movie();
    movietodisplay: Movie[]=[];
-   listMovie: Movie[]/* = [
+   listMovie: Movie[] = [
     { 
         id: 1,
         title: 'gameofthrone',
@@ -112,7 +112,7 @@ export class MovieComponent {
         owner: 'jennifer'
     }
     
-      ] */;
+      ] ;
 
       submit(form){
         this.movietoadd.owner =  this.user;
