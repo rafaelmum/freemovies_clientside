@@ -17,7 +17,8 @@ import {MovieComponent }  from './movie.component';
   declarations: [
     AppComponent ,
     LoginComponent,
-    MovieComponent  
+    MovieComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -6,10 +6,10 @@ import { UserProfileService } from '../service/user-profile.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'dashboard',
+  selector: 'app-root', //dashboard
   template: `
     <h1>
-        Welcome {{userProfile.user.name}}!
+        Welcome {{userProfile.user.firstname}}!
         Points: {{userProfile.user.points}}!
     </h1>
     <div>
@@ -31,13 +31,13 @@ import { Observable } from 'rxjs/Observable';
             Feedbacks Given
         </h3>
         <div *ngFor='let feedback of userProfile.feedbackGivenArray'>
-            {{feedback.userTo.firstname}} - {{feedback.userTo.feedbackType}} - {{feedback.userTo.text}}
+            {{feedback.userTo.firstname}} - {{feedback.feedbackType}} - {{feedback.text}}
         </div>
         <h3>
             Feedbacks Received
         </h3>
         <div *ngFor='let feedback of userProfile.feedbackReceivedArray'>
-            {{feedback.userFrom.firstname}} - {{feedback.userFrom.feedbackType}} - {{feedback.userFrom.text}}
+            {{feedback.userFrom.firstname}} - {{feedback.feedbackType}} - {{feedback.text}}
         </div>
     </div>
   `,
