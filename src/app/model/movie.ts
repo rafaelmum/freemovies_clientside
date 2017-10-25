@@ -1,4 +1,4 @@
-import { Feedback } from './model/feedback';
+import { Feedback } from './feedback';
 
 export class Movie {
     id: number;

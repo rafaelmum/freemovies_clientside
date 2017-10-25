@@ -4,7 +4,7 @@ import {MovieComponent} from './component/movie.component';
 import { AuthService } from './user/auth.service';
 
 @Component({
-  selector: 'app-root',
+  selector: '<movie-list></movie-list>',
   templateUrl: './app.component.html',
   styles: []
 })
