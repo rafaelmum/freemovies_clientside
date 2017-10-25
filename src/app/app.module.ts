@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import 'rxjs/Rx';
 
 import { LoginComponent } from './home/login.component';
-//import { DahsBoardComponent } from './component/dashboard.component'
+import { DashboardComponent } from './component/dashboard.component';
 
 import { UserModule } from './user/user.module';
 import { ToastrService } from './services/toastr.service';
@@ -35,6 +35,7 @@ import {MovieComponent }  from './movie.component';
     
   ],
   providers: [ToastrService],
-  bootstrap: [AppComponent]
+  //bootstrap: [AppComponent]
+  bootstrap: [DashboardComponent]
 })
 export class AppModule { }

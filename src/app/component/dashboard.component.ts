@@ -44,8 +44,7 @@ import { Observable } from 'rxjs/Observable';
   styles: [],
   providers: [UserProfileService],
 })
-export class DahsBoardComponent implements OnInit {
-  title = 'app';
+export class DashboardComponent implements OnInit {
   userProfile: UserProfile;
 
   constructor (private userProfileService: UserProfileService) {}
