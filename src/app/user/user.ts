@@ -4,5 +4,6 @@ export interface IUser {
     email?: string;
     username: string;
     password?: string;
-    lastlogin?: string
+    lastlogin?: string;
+    points?: number;
 }

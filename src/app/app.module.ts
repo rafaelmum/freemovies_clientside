@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 import 'rxjs/Rx';
 
 import { LoginComponent } from './home/login.component';
-//import { DahsBoardComponent } from './component/dashboard.component'
+import { DahsBoardComponent } from './component/dashboard.component'
 
 import { UserModule } from './user/user.module';
 import { ToastrService } from './services/toastr.service';
+import { AuthGuard } from './user/auth-guard.service';
 
 import { AppComponent } from './app.component';
 import {MovieComponent }  from './movie.component';
@@ -17,7 +18,8 @@ import {MovieComponent }  from './movie.component';
   declarations: [
     AppComponent ,
     LoginComponent,
-    MovieComponent  
+    MovieComponent,
+    DahsBoardComponent  
   ],
   imports: [
     BrowserModule,
@@ -27,14 +29,17 @@ import {MovieComponent }  from './movie.component';
     UserModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
-   //   { path: 'dashboard', component: DahsBoardComponent},
+      { path: 'dashboard', component: DahsBoardComponent,canActivate: [ AuthGuard]},
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: '**', redirectTo: 'login', pathMatch: 'full' }
+      { path: '**', redirectTo: 'login', pathMatch: 'full' },
   ])
     
     
   ],
-  providers: [ToastrService],
+  providers: [
+    ToastrService,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -30,12 +30,12 @@ export class LoginComponent {
       this.authService.login(this.loginForm.value)
         .subscribe(data => {
           if (data.json().success === false) {
-   //         this.toastr.error(data.json().message);
+            this.toastr.error(data.json().message);
      console.log("login failed");
           } else {
-     //       this.toastr.success('Login successful.');
+            this.toastr.success('Login successful.');
      console.log("successfull");
-            this.router.navigate(['report']);
+            this.router.navigate(['/dashboard']);
           }
           this.loginForm.reset();
         });
