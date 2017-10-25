@@ -1,9 +1,11 @@
-export class UserProfile {
-    private _id: number;
-    private _name: string;
-    private _points: number;
+import { IUser } from '../user/user';
+import { Feedback } from './feedback';
+import { MovieDisk } from './movie-disk';
 
-    get id () {
-        return this._id;
-    }
+export class UserProfile {
+    user: IUser;
+    feedbackGivenArray: Feedback[];
+    feedbackReceivedArray: Feedback[];
+    movieDiskGivenArray: MovieDisk[];
+    movieDiskReceivedArray: MovieDisk[];
 }

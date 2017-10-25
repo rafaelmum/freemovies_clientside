@@ -9,29 +9,35 @@ import { Observable } from 'rxjs/Observable';
   selector: 'dashboard',
   template: `
     <h1>
-        Welcome {{userProfile.name}}!
-        Points: {{userProfile.points}}!
+        Welcome {{userProfile.user.name}}!
+        Points: {{userProfile.user.points}}!
     </h1>
     <div>
         <h3>
-            Posted Movies
+            Movies Given
         </h3>
-        <div *ngFor='let postedMovie of postedMovies'>
-            {{postedMovie.title}} - {{postedMovie.year}}
+        <div *ngFor='let movieDiskGiven of userProfile.movieDiskGivenArray'>
+            {{movieDiskGiven.title}} - {{movieDiskGiven.year}}
         </div>
         <h3>
-            Gotten Movies
+            Movies Received
         </h3>
-        <div *ngFor='let gottenMovie of gottenMovies'>
-            {{gottenMovie.title}} - {{gottenMovie.year}}
+        <div *ngFor='let movieDiskReceived of userProfile.movieDiskReceivedArray'>
+            {{movieDiskReceived.title}} - {{movieDiskReceived.year}}
         </div>
     </div>
     <div>
         <h3>
+            Feedbacks Given
+        </h3>
+        <div *ngFor='let feedback of userProfile.feedbackGivenArray'>
+            {{feedback.userTo.firstname}} - {{feedback.userTo.feedbackType}} - {{feedback.userTo.text}}
+        </div>
+        <h3>
             Feedbacks Received
         </h3>
-        <div *ngFor='let feedback of feedbacks'>
-            {{feedback.userId}} - {{feedback.text}}
+        <div *ngFor='let feedback of userProfile.feedbackReceivedArray'>
+            {{feedback.userFrom.firstname}} - {{feedback.userFrom.feedbackType}} - {{feedback.userFrom.text}}
         </div>
     </div>
   `,
@@ -41,17 +47,10 @@ import { Observable } from 'rxjs/Observable';
 export class DahsBoardComponent implements OnInit {
   title = 'app';
   userProfile: UserProfile;
-  postedMovies: Movie[];
-  gottenMovies: Movie[];
-  feedbacks: Feedback[];
 
-  //constructor (private userProfileService: UserProfileService, private movieService: MovieService) {}
   constructor (private userProfileService: UserProfileService) {}
 
   ngOnInit (): void {
-    //(new Observable(this.userProfileService.getUserProfile())).subscribe(
-        //userProfile => this.userProfile = userProfile);
-    //postedMovies = movieService.getPostedMoviesByUser(userProfile.getId);
-    //gottenMovies = movieService.getGottenMoviesByUser();
+    this.userProfile = this.userProfileService.getUserProfile(1);
   }
 }

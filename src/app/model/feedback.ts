@@ -1,5 +1,9 @@
+import { IUser } from '../user/user';
+import { FeedbackType } from './feedback-type';
+
 export class Feedback {
-    userId: number;
-    userIdReceiver: number;
+    userFrom: IUser;
+    userTo: IUser;
+    feedbackType: FeedbackType;
     text: string;
 }

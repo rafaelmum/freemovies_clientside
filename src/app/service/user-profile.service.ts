@@ -3,7 +3,9 @@ import { UserProfile } from '../model/user-profile';
 
 @Injectable()
 export class UserProfileService {
-    getUserProfile(): UserProfile {
+    getUserProfile(userId: number): UserProfile {
+        
+        // backend call.
         return (new UserProfile());
     }
 }
