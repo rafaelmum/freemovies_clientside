@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import 'rxjs/Rx';
 
 import { LoginComponent } from './home/login.component';
-import { DahsBoardComponent } from './component/dashboard.component'
+import { DashboardComponent } from './component/dashboard.component'
 
 import { UserModule } from './user/user.module';
 import { ToastrService } from './services/toastr.service';
@@ -19,7 +19,7 @@ import {MovieComponent }  from './movie.component';
     AppComponent ,
     LoginComponent,
     MovieComponent,
-    DahsBoardComponent  
+    DashboardComponent  
   ],
   imports: [
     BrowserModule,
@@ -29,7 +29,7 @@ import {MovieComponent }  from './movie.component';
     UserModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
-      { path: 'dashboard', component: DahsBoardComponent,canActivate: [ AuthGuard]},
+      { path: 'dashboard', component: DashboardComponent,canActivate: [ AuthGuard]},
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: 'login', pathMatch: 'full' },
   ])
