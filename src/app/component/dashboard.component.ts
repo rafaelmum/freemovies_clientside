@@ -6,46 +6,37 @@ import { UserProfileService } from '../service/user-profile.service';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'dashboard',
+  selector: 'app-root', //dashboard
   template: `
     <h1>
-        Welcome {{userProfile.user.name}}!
-        Points: {{userProfile.user.points}}!
+        {{userProfile.user.firstname}} - Dashboard
+        <br>
+        Points: {{userProfile.user.points}}
     </h1>
+    <div>
+        <button>Movies</button>
+        <button>Buy Points</button>
+        <button>Sign Out</button>
+    </div>
     <div>
         <h3>
             Movies Given
         </h3>
-        <div *ngFor='let movieDiskGiven of userProfile.movieDiskGivenArray'>
-            {{movieDiskGiven.title}} - {{movieDiskGiven.year}}
+        <div *ngFor='let movieDiskGiven of userProfile.movieGivenArray'>
+            {{movieDiskGiven.title}} - {{movieDiskGiven.year}} [{{movieDiskGiven.feedback.feedbackType}} - "{{movieDiskGiven.feedback.text}}"]
         </div>
         <h3>
             Movies Received
         </h3>
-        <div *ngFor='let movieDiskReceived of userProfile.movieDiskReceivedArray'>
-            {{movieDiskReceived.title}} - {{movieDiskReceived.year}}
-        </div>
-    </div>
-    <div>
-        <h3>
-            Feedbacks Given
-        </h3>
-        <div *ngFor='let feedback of userProfile.feedbackGivenArray'>
-            {{feedback.userTo.firstname}} - {{feedback.userTo.feedbackType}} - {{feedback.userTo.text}}
-        </div>
-        <h3>
-            Feedbacks Received
-        </h3>
-        <div *ngFor='let feedback of userProfile.feedbackReceivedArray'>
-            {{feedback.userFrom.firstname}} - {{feedback.userFrom.feedbackType}} - {{feedback.userFrom.text}}
+        <div *ngFor='let movieDiskReceived of userProfile.movieReceivedArray'>
+            {{movieDiskReceived.title}} - {{movieDiskReceived.year}} [{{movieDiskReceived.feedback.feedbackType}} - "{{movieDiskReceived.feedback.text}}"]
         </div>
     </div>
   `,
   styles: [],
   providers: [UserProfileService],
 })
-export class DahsBoardComponent implements OnInit {
-  title = 'app';
+export class DashboardComponent implements OnInit {
   userProfile: UserProfile;
 
   constructor (private userProfileService: UserProfileService) {}

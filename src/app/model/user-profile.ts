@@ -1,11 +1,8 @@
 import { IUser } from '../user/user';
-import { Feedback } from './feedback';
-import { MovieDisk } from './movie-disk';
+import { Movie } from '../movie';
 
 export class UserProfile {
     user: IUser;
-    feedbackGivenArray: Feedback[];
-    feedbackReceivedArray: Feedback[];
-    movieDiskGivenArray: MovieDisk[];
-    movieDiskReceivedArray: MovieDisk[];
+    movieGivenArray: Movie[];
+    movieReceivedArray: Movie[];
 }
