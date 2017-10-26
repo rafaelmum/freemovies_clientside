@@ -4,7 +4,7 @@ import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 // For mocking.
-import { IUser } from '../user/user';
+import { IUser } from '../model/user';
 import { Movie } from '../model/movie';
 import { Feedback } from '../model/feedback';
 import { FeedbackType } from '../model/feedback-type';
@@ -14,10 +14,6 @@ export class UserProfileService {
     constructor(private http: Http) {}
 
     getUserProfile(userId: string): UserProfile {
-        //this.http.get('http://localhost:3001/userprofile/').map((arr)=> {
-            //this.movietodisplay1 = JSON.parse(JSON.stringify(arr));
-         //}).subscribe();
-
         
         // Mocked backend call.
         let userProfile = new UserProfile();

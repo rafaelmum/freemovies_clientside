@@ -1,4 +1,4 @@
-import { IUser } from '../user/user';
+import { IUser } from '../model/user';
 import { FeedbackType } from './feedback-type';
 
 export class Feedback {
