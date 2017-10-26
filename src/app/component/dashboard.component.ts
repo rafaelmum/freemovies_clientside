@@ -5,7 +5,7 @@ import { Feedback } from '../model/feedback';
 import { UserProfileService } from '../service/user-profile.service';
 import { DashboardMoviePipe } from '../pipe/dashboard-movie.pipe';
 import { DashboardMovieDirective } from '../directive/dashboard-movie.directive';
-import { AuthService } from '../user/auth.service';
+import { AuthService } from '../service/auth.service';
 
 import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Observable';

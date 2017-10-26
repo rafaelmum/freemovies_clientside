@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { AuthService } from '../user/auth.service';
+import { AuthService } from '../service/auth.service';
 @Component({
   selector: 'movie-list',
   templateUrl: '../view/movie-template.html',

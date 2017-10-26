@@ -1,4 +1,4 @@
-import { IUser } from '../user/user';
+import { IUser } from '../model/user';
 import { Movie } from '../model/movie';
 
 export class UserProfile {
