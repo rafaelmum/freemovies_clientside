@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 
 
-import { IUser } from './user';
+import { IUser } from '../model/user';
 
 @Injectable()
 export class AuthService {

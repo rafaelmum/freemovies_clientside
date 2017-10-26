@@ -10,13 +10,13 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import 'rxjs/Rx';
 
-import { LoginComponent } from './home/login.component';
+import { LoginComponent } from './component/login.component';
 import { DashboardComponent } from './component/dashboard.component';
 import { MovieComponent }  from './component/movie.component';
 
-import { UserModule } from './user/user.module';
-import { ToastrService } from './services/toastr.service';
-import { AuthGuard } from './user/auth-guard.service';
+import { UserModule } from './module/user.module';
+import { ToastrService } from './service/toastr.service';
+import { AuthGuard } from './service/auth-guard.service';
 
 import { AppComponent } from './app.component';
 

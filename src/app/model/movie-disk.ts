@@ -1,5 +1,5 @@
 import { Movie } from './movie';
-import { IUser } from '../user/user';
+import { IUser } from '../model/user';
 
 export class MovieDisk {
     movie: Movie;

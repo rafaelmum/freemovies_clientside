@@ -4,7 +4,7 @@ import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 // For mocking.
-import { IUser } from '../user/user';
+import { IUser } from '../model/user';
 import { Movie } from '../model/movie';
 import { Feedback } from '../model/feedback';
 import { FeedbackType } from '../model/feedback-type';

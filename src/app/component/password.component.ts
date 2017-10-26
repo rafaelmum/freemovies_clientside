@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastrService } from '../services/toastr.service'
-import { UserService } from '../user/user.service';
-import { AuthService } from '../user/auth.service';
+import { ToastrService } from '../service/toastr.service'
+import { UserService } from '../service/user.service';
+import { AuthService } from '../service/auth.service';
 
 function comparePassword(c: AbstractControl): {[key: string]: boolean} | null {
     let passwordControl = c.get('password');
@@ -20,7 +20,7 @@ function comparePassword(c: AbstractControl): {[key: string]: boolean} | null {
  }
 
 @Component({
-  templateUrl: './password.component.html'
+  templateUrl: '../view/password.component.html'
 })
 
 export class PasswordComponent implements OnInit {

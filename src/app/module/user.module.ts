@@ -2,13 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RegisterComponent } from './register.component';
-import { PasswordComponent } from './password.component';
-import { ProfileComponent } from './profile.component';
-import { LogoutComponent } from './logout.component';
-import { AuthService } from './auth.service';
-import { AuthGuard } from './auth-guard.service';
-import { UserService } from './user.service';
+import { RegisterComponent } from '../component/register.component';
+import { PasswordComponent } from '../component/password.component';
+import { ProfileComponent } from '../component/profile.component';
+import { LogoutComponent } from '../component/logout.component';
+import { AuthService } from '../service/auth.service';
+import { AuthGuard } from '../service/auth-guard.service';
+import { UserService } from '../service/user.service';
 
 @NgModule({
   imports: [

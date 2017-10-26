@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastrService } from '../services/toastr.service'
-import { UserService } from '../user/user.service';
-import { AuthService } from '../user/auth.service';
-import { IUser } from './user';
+import { ToastrService } from '../service/toastr.service'
+import { UserService } from '../service/user.service';
+import { AuthService } from '../service/auth.service';
+import { IUser } from '../model/user';
 
 @Component({
-  templateUrl: './profile.component.html'
+  templateUrl: '../view/profile.component.html'
 })
 
 export class ProfileComponent implements OnInit {

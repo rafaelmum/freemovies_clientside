@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ToastrService } from '../services/toastr.service'
-import { UserService } from './user.service';
+import { ToastrService } from '../service/toastr.service'
+import { UserService } from '../service/user.service';
 
 function comparePassword(c: AbstractControl): {[key: string]: boolean} | null {
     let passwordControl = c.get('password');
@@ -19,7 +19,7 @@ function comparePassword(c: AbstractControl): {[key: string]: boolean} | null {
  }
 
 @Component({
-  templateUrl: './register.component.html'
+  templateUrl: '../view/register.component.html'
 })
 
 export class RegisterComponent implements OnInit {
