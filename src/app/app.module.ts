@@ -12,6 +12,7 @@ import 'rxjs/Rx';
 
 import { LoginComponent } from './home/login.component';
 import { DashboardComponent } from './component/dashboard.component';
+import { MovieComponent }  from './component/movie.component';
 
 import { UserModule } from './user/user.module';
 import { ToastrService } from './services/toastr.service';
@@ -35,7 +36,8 @@ import { AppComponent } from './app.component';
     UserModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent},
-      { path: 'dashboard', component: DashboardComponent,canActivate: [ AuthGuard]},
+      { path: 'dashboard', component: DashboardComponent, canActivate: [ AuthGuard]},
+      { path: 'movies', component: MovieComponent, canActivate: [ AuthGuard]},
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: 'login', pathMatch: 'full' }
   ])
