@@ -48,7 +48,7 @@ export class MovieComponent {
         
     }
     displayall(){         
-        console.log("5544355554");
+        
         this.http.get('http://localhost:3001/movie/movies').map((arr)=> {
            this.movietodisplay1 = JSON.parse(JSON.stringify(arr));
         }).subscribe();
