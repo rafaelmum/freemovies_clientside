@@ -1,4 +1,4 @@
-import { Movie } from '../model/movie';
+import { Movie } from './movie';
 import { IUser } from '../user/user';
 
 export class MovieDisk {
