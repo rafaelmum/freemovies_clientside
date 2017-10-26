@@ -6,5 +6,6 @@ export class Movie {
     year: number;
     duration: number;
     owner: string;
+    newowner: string;
     feedback?: Feedback;
 }
