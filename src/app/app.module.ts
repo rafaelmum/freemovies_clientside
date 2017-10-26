@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {MovieModule} from './module/movie.module';
-import {DashboardModule} from './module/dashboard.module';
+
+import {MovieModule} from './module/movie.module'
 import {HttpClientModule} from '@angular/common/http';     
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,17 +19,27 @@ import { AuthGuard } from './user/auth-guard.service';
 
 import { AppComponent } from './app.component';
 
+
+import { DashboardMoviePipe } from './pipe/dashboard-movie.pipe';
+import { DashboardMovieDirective } from './directive/dashboard-movie.directive';
+
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
+    AppComponent ,
+    LoginComponent,
+    DashboardComponent,
+    DashboardMoviePipe,
+    DashboardMovieDirective
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
+
+    
     HttpClientModule,
-    MovieModule,
-    DashboardModule,
+    MovieModule ,  
+
     ReactiveFormsModule,
     HttpModule,
     UserModule,
@@ -39,8 +49,14 @@ import { AppComponent } from './app.component';
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: 'login', pathMatch: 'full' }
   ])
+    
+    
+
   ],
-  providers: [ToastrService],
+  providers: [
+    ToastrService,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
