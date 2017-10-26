@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
-import {Movie } from '../model/movie';
-import {MovieService } from '../service/movie.service';
 
+import {MovieService } from '../service/movie.service';
+import {Movie } from '../model/movie';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions} from '@angular/http';
