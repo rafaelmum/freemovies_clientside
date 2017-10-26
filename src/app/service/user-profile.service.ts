@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { UserProfile } from '../model/user-profile';
 import { Http } from '@angular/http';
 import { AuthService } from '../service/auth.service';
 

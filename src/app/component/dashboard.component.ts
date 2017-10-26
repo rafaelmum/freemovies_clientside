@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../model/movie';
 import { UserProfile } from '../model/user-profile';
-import { IUser } from '../model/user';
 import { Feedback } from '../model/feedback';
 import { UserProfileService } from '../service/user-profile.service';
 import { DashboardMoviePipe } from '../pipe/dashboard-movie.pipe';
 import { DashboardMovieDirective } from '../directive/dashboard-movie.directive';
-import { AuthService } from '../service/auth.service';
-
-import { Http, Response, Headers, RequestOptions} from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'dashboard',
