@@ -11,7 +11,7 @@ import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
-  selector: 'app-root', //dashboard
+  selector: 'dashboard',
   template: `
     <h1>
         {{userProfile.user.firstname}} - Dashboard
