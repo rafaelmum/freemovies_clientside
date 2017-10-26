@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../model/movie';
 import { UserProfile } from '../model/user-profile';
-import { IUser } from '../model/user';
 import { Feedback } from '../model/feedback';
 import { UserProfileService } from '../service/user-profile.service';
 import { DashboardMoviePipe } from '../pipe/dashboard-movie.pipe';
 import { DashboardMovieDirective } from '../directive/dashboard-movie.directive';
-import { AuthService } from '../service/auth.service';
-
-import { Http, Response, Headers, RequestOptions} from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'dashboard',
@@ -37,29 +31,24 @@ import { Observable } from 'rxjs/Observable';
     </div>
   `,
   styles: [],
-  providers: [UserProfileService],
+  providers: [UserProfileService]
 })
 export class DashboardComponent implements OnInit {
   userProfile: UserProfile = new UserProfile();
 
-  constructor (private userProfileService: UserProfileService, public authService: AuthService,
-    private http: Http) {}
+  constructor (private userProfileService: UserProfileService) {}
 
   ngOnInit (): void {
-    console.log('username: ' + this.authService.currentUser.username);
-    this.userProfile = this.userProfileService.getUserProfile('');
-    //this.userProfile = this.userProfileService.getUserProfile(this.authService.currentUser.username);
-
-    this.http.get('http://localhost:3001/userprofile/user/' + this.authService.currentUser.username).subscribe(res => {
+    this.userProfileService.getUser().subscribe(res => {
         this.userProfile.user = res.json();
-     });
+    });
 
-     this.http.get('http://localhost:3001/userprofile/movieGiven/' + this.authService.currentUser.username).subscribe(res => {
+    this.userProfileService.getMovieGivenArray().subscribe(res => {
         this.userProfile.movieGivenArray = res.json();
-     });
+    });
 
-     this.http.get('http://localhost:3001/userprofile/movieReceived/' + this.authService.currentUser.username).subscribe(res => {
+    this.userProfileService.getMovieReceivedArray().subscribe(res => {
         this.userProfile.movieReceivedArray = res.json();
-     });
+    });
   }
 }

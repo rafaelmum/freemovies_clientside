@@ -8,10 +8,13 @@ import { Http, Response, Headers, RequestOptions} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { AuthService } from '../service/auth.service';
+import { UserProfileService } from '../service/user-profile.service';
+
 @Component({
   selector: 'movie-list',
   templateUrl: '../view/movie-template.html',
-  styles: []
+  styles: [],
+  providers: [UserProfileService]
 })
 export class MovieComponent {
    displaysearch: boolean= false;
@@ -21,7 +24,8 @@ export class MovieComponent {
    movietodisplay1 = [];
    moviesearched: Movie[]=[]; 
   
-   constructor(private http: HttpClient, private movieservice: MovieService,public authService: AuthService) {}
+   constructor(private http: HttpClient, private movieservice: MovieService,public authService: AuthService,
+        private userProfileService: UserProfileService) {}
    
    
     
@@ -55,9 +59,12 @@ export class MovieComponent {
         console.log("client"+movid + "  "+ this.authService.currentUser.username);
         this.http.get('http://localhost:3001/movie/update/' + this.authService.currentUser.username + "/" + movid  ).map((arr)=> {
             this.movietodisplay1 = JSON.parse(JSON.stringify(arr));
-         }).subscribe();        
+        }).subscribe();        
         
-
+        // Update users points.
+        this.userProfileService.updateUserPoints(this.authService.currentUser.username, movid).subscribe(res => {
+            res.json();
+        });
     }
 
 }
