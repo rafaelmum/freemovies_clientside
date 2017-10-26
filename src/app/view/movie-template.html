@@ -4,9 +4,9 @@
         <a class="navbar-brand" href="#">Movie Rent</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li (click)="displayall()" ><a href="#">Movies</a></li>
-        <li ><a href="#" >Add Movies</a></li>    
+        <li class="active"><a >Home</a></li>
+        <li (click)="displayall()" ><a>Movies</a></li>
+        <li ><a  >Add Movies</a></li>    
             
       </ul>
     </div>
@@ -50,7 +50,7 @@
       </table>
       </div>
   <div class="container pagecontainer">
-      <form #form="ngForm" (ngSubmit)="submit(form)">
+      <form #ref="ngForm" (ngSubmit)="submitForm(ref)">
       
           <div class="form-group">
           <label for="movie_title">Movie Title</label>
