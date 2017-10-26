@@ -15,11 +15,6 @@ import { DashboardMovieDirective } from '../directive/dashboard-movie.directive'
         Points: {{userProfile.user.points}}
     </h1>
     <div>
-        <button>Movies</button>
-        <button>Buy Points</button>
-        <button>Sign Out</button>
-    </div>
-    <div>
         <h3>
             Movies Given
         </h3>
