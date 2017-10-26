@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
-import {MovieModule} from './module/movie.module'
+import {MovieModule} from './module/movie.module';
+import {DashboardModule} from './module/dashboard.module';
 import {HttpClientModule} from '@angular/common/http';     
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,27 +19,17 @@ import { AuthGuard } from './user/auth-guard.service';
 
 import { AppComponent } from './app.component';
 
-
-import { DashboardMoviePipe } from './pipe/dashboard-movie.pipe';
-import { DashboardMovieDirective } from './directive/dashboard-movie.directive';
-
 @NgModule({
   declarations: [
-    AppComponent ,
-    LoginComponent,
-    DashboardComponent,
-    DashboardMoviePipe,
-    DashboardMovieDirective
-
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-
-    
     HttpClientModule,
-    MovieModule ,  
-
+    MovieModule,
+    DashboardModule,
     ReactiveFormsModule,
     HttpModule,
     UserModule,
@@ -49,9 +39,6 @@ import { DashboardMovieDirective } from './directive/dashboard-movie.directive';
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: 'login', pathMatch: 'full' }
   ])
-    
-    
-
   ],
   providers: [ToastrService],
   bootstrap: [AppComponent]
