@@ -46,12 +46,15 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit (): void {
     console.log('username: ' + this.authService.currentUser.username);
+    this.userProfile = this.userProfileService.getUserProfile('');
     //this.userProfile = this.userProfileService.getUserProfile(this.authService.currentUser.username);
 
+    /*
     this.http.get('http://localhost:5002/userprofile/' + this.authService.currentUser.username)
             .map((returnedObject)=> {
         console.log('returnedObject: ' + returnedObject);
         this.userProfile = JSON.parse(JSON.stringify(returnedObject));
      }).subscribe();
+     */
   }
 }
