@@ -36,7 +36,7 @@ export class PasswordComponent implements OnInit {
     private toastr: ToastrService) {
   }
   
-  //oldpassword = new FormControl('', [Validators.required,PasswordValidators.passwordCriteria]);
+  oldpassword = new FormControl('', [Validators.required,PasswordValidators.passwordCriteria]);
   password = new FormControl('', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,12}$')]);
   retypepass = new FormControl('', [Validators.required]);
 
