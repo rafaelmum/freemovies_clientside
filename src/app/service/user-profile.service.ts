@@ -23,4 +23,10 @@ export class UserProfileService {
             res.json();
         });
     }
+
+    updateUserPoints(username: string, movieId: number) {
+        return this.http.get('http://localhost:3001/userprofile/updatepoints/' + username + '/' + movieId).do(res => {
+            res.json();
+        });
+    }
 }

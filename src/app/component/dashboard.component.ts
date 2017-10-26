@@ -31,7 +31,7 @@ import { DashboardMovieDirective } from '../directive/dashboard-movie.directive'
     </div>
   `,
   styles: [],
-  providers: [UserProfileService],
+  providers: [UserProfileService]
 })
 export class DashboardComponent implements OnInit {
   userProfile: UserProfile = new UserProfile();
