@@ -3,7 +3,7 @@ import { UserProfile } from '../model/user-profile';
 
 // For mocking.
 import { IUser } from '../user/user';
-import { Movie } from '../movie';
+import { Movie } from '../model/movie';
 import { Feedback } from '../model/feedback';
 import { FeedbackType } from '../model/feedback-type';
 
