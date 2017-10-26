@@ -14,7 +14,7 @@ import { AuthService } from '../user/auth.service';
   styles: []
 })
 export class MovieComponent {
-   displaysearch: boolean= false;   
+   displaysearch: boolean= false;
    searchtitle: string='';
    movietoadd: Movie = new Movie();
    movietodisplay: Movie[] = [];
@@ -49,6 +49,15 @@ export class MovieComponent {
            this.movietodisplay1 = JSON.parse(JSON.stringify(arr));
         }).subscribe();
         
+    }
+
+    rent(movid){
+        console.log("client"+movid + "  "+ this.authService.currentUser.username);
+        this.http.get('http://localhost:3001/movie/update/' + this.authService.currentUser.username + "/" + movid  ).map((arr)=> {
+            this.movietodisplay1 = JSON.parse(JSON.stringify(arr));
+         }).subscribe();        
+        
+
     }
 
 }
