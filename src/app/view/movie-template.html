@@ -18,7 +18,7 @@
       
     </div>
   </div>
-  <div class="col-lg-6">
+  <div class="col-lg-6" *ngIf= "displaysearch">
     <div class="input-group">
       <input [(ngModel)]= "searchtitle"  name="search" #search="ngModel" id="movie_title"  type="text" class="form-control" placeholder="Search for...">
       <span class="input-group-btn">
@@ -49,7 +49,7 @@
        </tr>
       </table>
       </div>
-  <div class="container pagecontainer">
+  <div class="container pagecontainer" *ngIf= "!displaysearch">
       <form #ref="ngForm" (ngSubmit)="submitForm(ref)">
       
           <div class="form-group">
@@ -67,4 +67,5 @@
           
           <button class="btn btn-primary">Add Movie</button>
       </form >
+  </div> 
       

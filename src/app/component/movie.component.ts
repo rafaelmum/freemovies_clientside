@@ -14,8 +14,8 @@ import { AuthService } from '../service/auth.service';
   styles: []
 })
 export class MovieComponent {
-   user:string= 'sami';
-   searchtitle: String='';
+   displaysearch: boolean= false;   
+   searchtitle: string='';
    movietoadd: Movie = new Movie();
    movietodisplay: Movie[] = [];
    movietodisplay1 = [];
@@ -29,14 +29,10 @@ export class MovieComponent {
    
 
     find(){
-        console.log("formmmmmmmmmmmmmmm");
-        this.movietodisplay1.forEach(movie=>{
-            if(movie.title==this.searchtitle){
-                this.moviesearched.push(movie);
-                
-            }
-        });
-        this.movietodisplay1= this.moviesearched;
+        this.http.get('http://localhost:3001/movie/movies/' + this.searchtitle).map((arr)=> {
+            this.movietodisplay1 = JSON.parse(JSON.stringify(arr));
+         }).subscribe();
+        
     }
     submitForm(form){
         let movieinstance: Movie=new Movie();
@@ -48,7 +44,7 @@ export class MovieComponent {
         
     }
     displayall(){         
-        
+        this.displaysearch=true;
         this.http.get('http://localhost:3001/movie/movies').map((arr)=> {
            this.movietodisplay1 = JSON.parse(JSON.stringify(arr));
         }).subscribe();
