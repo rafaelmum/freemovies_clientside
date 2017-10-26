@@ -21,24 +21,24 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
-    "bootstrap": "^3.3.7",
     "core-js": "^2.4.1",
     "rxjs": "^5.4.2",
-    "jquery": "^3.2.1",
     "zone.js": "^0.8.14",
+    "jquery": "^3.2.1",
     "toastr": "^2.1.2",
+    "bootstrap": "^3.3.7",
     "express": "^4.16.2",
     "body-parser": "^1.18.2",
     "morgan": "^1.9.0",
     "bcrypt-nodejs": "^0.0.3",
-    "jsonwebtoken": "^8.1.0",
+    "jsonwebtoken": "^7.3.0",
     "mongoose": "^4.12.4",
     "mongoose-paginate": "^5.0.3"
   },
   "devDependencies": {
-    "@angular/cli": "1.4.9",
+    "@angular/cli": "1.4.7",
     "@angular/compiler-cli": "^4.2.4",
     "@angular/language-service": "^4.2.4",
-    "typescript": "~2.5.3"
+    "typescript": "~2.3.3"
   }
 }

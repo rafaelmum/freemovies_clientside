@@ -19,10 +19,15 @@ export class UserService {
     }
     
     register(oUser) {
-        let headers = new Headers ({ 'Content-Type': 'application/json'});
-        let options = new RequestOptions({headers: headers});
+        console.log("football");
+     //   let headers = new Headers ({ 'Content-Type': 'application/json'});
+      //  let options = new RequestOptions({headers: headers});
 
-        return this.http.post('http://localhost:3001/register', JSON.stringify(oUser), options)
+     // let headers = new Headers();
+     // headers.append('Content-Type', 'application/json');
+     // let options = new RequestOptions({ headers: headers });
+
+        return this.http.post('http://localhost:3001/register', JSON.stringify(oUser))
             .map((response: Response) => response.json())
             .catch(this.handleError);
     }

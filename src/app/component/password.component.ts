@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from '../service/toastr.service'
 import { UserService } from '../service/user.service';
 import { AuthService } from '../service/auth.service';
+import { PasswordValidators } from '../service/passwordValidator';
 
 function comparePassword(c: AbstractControl): {[key: string]: boolean} | null {
     let passwordControl = c.get('password');
@@ -35,7 +36,7 @@ export class PasswordComponent implements OnInit {
     private toastr: ToastrService) {
   }
   
-  oldpassword = new FormControl('', [Validators.required]);
+  //oldpassword = new FormControl('', [Validators.required,PasswordValidators.passwordCriteria]);
   password = new FormControl('', [Validators.required, Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,12}$')]);
   retypepass = new FormControl('', [Validators.required]);
 
