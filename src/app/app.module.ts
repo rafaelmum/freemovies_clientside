@@ -40,7 +40,10 @@ import { AppComponent } from './app.component';
       { path: '**', redirectTo: 'login', pathMatch: 'full' }
   ])
   ],
-  providers: [ToastrService],
+  providers: [
+    ToastrService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

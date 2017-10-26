@@ -20,7 +20,7 @@ export class MovieComponent {
    movietodisplay: Movie[] = [];
    movietodisplay1 = [];
    moviesearched: Movie[]=[]; 
-   results: string[];
+   movieinstance: Movie;
    constructor(private http: HttpClient, private movieservice: MovieService) {}
    
    
@@ -37,17 +37,18 @@ export class MovieComponent {
         });
         this.movietodisplay1= this.moviesearched;
     }
-
-    displayall(){ 
-        
+    submit(form){
+        form.id=6
+        form.name= this.user;
+        this.http.post('http://localhost:3001/movie/add', form)
+        console.log(form.value);
+    }
+    displayall(){         
         this.movieservice.hi();
-        this.http.get('http://localhost:3001/movies').map((arr)=> {
+        this.http.get('http://localhost:3001/movie/movies').map((arr)=> {
            this.movietodisplay1 = JSON.parse(JSON.stringify(arr));
         }).subscribe();
-        //this.movietodisplay= this.listMovie;
-        
-        
-        
-        
+        //this.movietodisplay= this.listMovie;   
     }
+
 }
