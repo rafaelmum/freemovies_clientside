@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserProfile } from '../model/user-profile';
+import { Http, Response, Headers, RequestOptions} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 // For mocking.
 import { IUser } from '../user/user';
@@ -9,7 +11,13 @@ import { FeedbackType } from '../model/feedback-type';
 
 @Injectable()
 export class UserProfileService {
-    getUserProfile(userId: number): UserProfile {
+    constructor(private http: Http) {}
+
+    getUserProfile(userId: string): UserProfile {
+        //this.http.get('http://localhost:3001/userprofile/').map((arr)=> {
+            //this.movietodisplay1 = JSON.parse(JSON.stringify(arr));
+         //}).subscribe();
+
         
         // Mocked backend call.
         let userProfile = new UserProfile();
@@ -60,5 +68,6 @@ export class UserProfileService {
         userProfile.movieReceivedArray = movieArray;
 
         return userProfile;
+        
     }
 }

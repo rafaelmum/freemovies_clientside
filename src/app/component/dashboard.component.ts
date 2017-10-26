@@ -5,6 +5,10 @@ import { Feedback } from '../model/feedback';
 import { UserProfileService } from '../service/user-profile.service';
 import { DashboardMoviePipe } from '../pipe/dashboard-movie.pipe';
 import { DashboardMovieDirective } from '../directive/dashboard-movie.directive';
+import { AuthService } from '../user/auth.service';
+
+import { Http, Response, Headers, RequestOptions} from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root', //dashboard
@@ -37,9 +41,20 @@ import { DashboardMovieDirective } from '../directive/dashboard-movie.directive'
 export class DashboardComponent implements OnInit {
   userProfile: UserProfile;
 
-  constructor (private userProfileService: UserProfileService) {}
+  constructor (private userProfileService: UserProfileService, public authService: AuthService,
+    private http: Http) {}
 
   ngOnInit (): void {
-    this.userProfile = this.userProfileService.getUserProfile(1);
+    console.log('username: ' + this.authService.currentUser.username);
+    this.userProfile = this.userProfileService.getUserProfile('');
+    //this.userProfile = this.userProfileService.getUserProfile(this.authService.currentUser.username);
+
+    /*
+    this.http.get('http://localhost:5002/userprofile/' + this.authService.currentUser.username)
+            .map((returnedObject)=> {
+        console.log('returnedObject: ' + returnedObject);
+        this.userProfile = JSON.parse(JSON.stringify(returnedObject));
+     }).subscribe();
+     */
   }
 }
